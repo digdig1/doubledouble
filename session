@@ -1,0 +1,6 @@
+ession_start();
+$session_userid=$HTTP_SESSION_VARS["session_userid"];
+if (!session_is_registered ("session_userid")) session_register("session_userid");
+$session_auth=$HTTP_SESSION_VARS["session_auth"];
+if (!session_is_registered ("session_auth")) session_register("session_auth");
+?>
