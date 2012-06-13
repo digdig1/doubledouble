@@ -1,0 +1,9 @@
+nclude_once("../lib/session.php");
+
+$session_userid = "";//인증해제
+echo "
+<script>
+location.replace('login_form.php');
+</script>
+";
+?>
