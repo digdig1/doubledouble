@@ -1,0 +1,14 @@
+d>
+<title>DoubleDouble 홈페이지 입니다.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+</head>
+
+<frameset rows="40,*" framespacing="0" frameborder="NO" border="0">
+  <frame src="top.php" name="topFrame" scrolling="NO" noresize >
+    <frame src="main.php" name="mainFrame">
+    </frameset>
+    <noframes><body>
+
+    </body></noframes>
+    </html>
+
