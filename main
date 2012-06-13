@@ -1,0 +1,58 @@
+nclude_once("lib/dbcon.php");
+?>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<link href="css/global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<br>
+<br>
+<br>
+<table width="500" border="0" align="center" cellpadding="5" cellspacing="0">
+  <tr> 
+      <td align="center">Welcome to SaFaRi</td>
+        </tr>
+	  <tr> 
+	      <td height="100" align="right"><img src="/img/main.gif" width="400" height="200"></td>
+	        </tr>
+		  <tr> 
+		      <td align="center">책을 사고파는 중고마켓 사이트입니다.<br> <br>
+		            당신은 <b> 
+			          <?
+				  	//카운트 프로그램입니다.
+						//카운트할 페이지(url)을 정의합니다.
+							$url = $PHP_SELF;
+								
+									//카운트 테이블에 카운트할 페이지가 등록되어 있는지 확입니다. 
+										$sql = "select count(*) from counter where url='$url'";
+											$res = mysql_query($sql);
+
+												if ($res) $rs = mysql_fetch_array($res);
+													
+														if ($rs[0]>0) { //이미 등록된 페이지이면 카운트만 1증가시키고, 
+																$sql = "update counter set visited = visited + 1, last_date=now() where url='$url' "; 
+																		mysql_query($sql);
+																			} else { //등록되지 않은 신규페이지이면 페이지를 등록합니다.  
+																					$sql = "insert into counter (url, visited, last_date) values ('$url',1,now())"; 
+																							mysql_query($sql);
+																								}
+																									
+																										//출력할 현재 카운트를 질의합니다.  
+																											$sql = "select * from counter where url='$url'";
+																												$res = mysql_query($sql);
+																													if ($res) $rs = mysql_fetch_array($res);
+
+																														$visited = $rs[visited];//출력할 카운터
+																															
+																																//정수인 카운터를 8자리의 문자로 출력합니다.
+																																	for ($i=0;$i<8-strlen(strval($visited));$i++) echo "0";
+																																		echo $visited;
+																																			?>
+																																			      </b>번째 방문하셨습니다. </td>
+																																			        </tr>
+																																				</table>
+																																				</body>
+																																				</html>
+
